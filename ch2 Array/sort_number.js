@@ -11,13 +11,14 @@ function sortNumbers(numbers) {
     // }
     return numbers.sort(compare);
     function compare(num1, num2) {
-        if (num1 > num2) {
-            return 1;
-        } else if (num1 < num2) {
-            return -1;
-        } else {
-            return 0;
-        }
+        // if (num1 > num2) {
+        //     return 1;
+        // } else if (num1 < num2) {
+        //     return -1;
+        // } else {
+        //     return 0;
+        // }
+        return num1 - num2;
     }
 }
 
