@@ -41,6 +41,16 @@ for(var col = 0; col < studentAmount; col ++) {
     average = 0.0;
 }
 
-//jagged array
+//jagged array --- the same as before
+var jaggedGrades = [[89, 77], [88, 69, 89], [88, 69, 78, 89], [69, 89]];
+for(var row = 0; row < jaggedGrades.length; ++row) {
+    for(var column = 0; column < jaggedGrades[row].length; ++column) {
+        total += jaggedGrades[row][column];
+    }
+    average = total / jaggedGrades[row].length;
+    console.log('student '+ (row + 1) + ':' + average);
+    average = 0;
+    total = 0;
+}
 
 
