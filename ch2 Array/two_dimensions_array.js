@@ -15,6 +15,7 @@ for(var row = 0; row < grades.length; ++row) {
     total = 0;
 }
 
+
 //row wise example: seems to be wrong
 for (var col = 0; col < grades.length; ++col) {
     for (var row = 0; row < grades[col].length; ++row) {
