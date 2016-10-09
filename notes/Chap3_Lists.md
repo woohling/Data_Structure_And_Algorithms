@@ -1,2 +1,0 @@
-
-### Abstract Data Type (ADT) 
