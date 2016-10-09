@@ -2,6 +2,24 @@
 //1 Create a grades object that stores a set of student grades in an object. Provide a function for adding a grade and
 // a function for displaying the student’s grade average.
 
+function Grades() {
+    this.gradesSet = [];
+    this.addGrade = addGrade;
+    this.averageGrade = averageGrade;
+}
+
+function addGrade(grade) {
+    this.gradesSet.push(grade);
+}
+
+function averageGrade() {
+    var total = 0;
+    for (var i = 0; i < this.gradesSet.length; i++) {
+        total += this.gradesSet[i];
+    }
+    var average = total / this.gradesSet.length;
+    return average;
+}
 
 //2 Store a set of words in an array and display the contents both forward and backward
 
@@ -70,7 +88,7 @@ function add(data) {
 }
 
 var weekTemps = new WeekTemps();
-
+//create a week's data:
 for (var i = 1; i < 32; i ++) {
     weekTemps.add(i);
 }
