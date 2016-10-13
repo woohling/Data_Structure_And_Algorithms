@@ -132,28 +132,29 @@ names.append("Jennifer");
 names.append("Bryan");
 names.append("Danny");
 
-const fs = require('fs');
-var movies;
-
-fs.readFile('films.txt', function (err, data) {
-    if (err) {
-        throw err;
-    }
-    movies = data.toString().split('\n');
-    console.log(movies);
-    movies = Array.prototype.slice.call(movies);
-    console.log(typeof movies);
-    console.log(typeof movies[0]);
-});
-
-function createArr(arr) {
-    for (var i = 0; i < arr.length; i++) {
-        arr[i] = arr[i].trim();
-    }
-    return arr;
-}
-
-movies = createArr(movies);
+export default List;
+// const fs = require('fs');
+// var movies;
+//
+// fs.readFile('films.txt', function (err, data) {
+//     if (err) {
+//         throw err;
+//     }
+//     movies = data.toString().split('\n');
+//     console.log(movies);
+//     movies = Array.prototype.slice.call(movies);
+//     console.log(typeof movies);
+//     console.log(typeof movies[0]);
+// });
+//
+// function createArr(arr) {
+//     for (var i = 0; i < arr.length; i++) {
+//         arr[i] = arr[i].trim();
+//     }
+//     return arr;
+// }
+//
+// movies = createArr(movies);
 //
 // var movieList = new List();
 // for (var i = 0; i < movies.length; i++) {
