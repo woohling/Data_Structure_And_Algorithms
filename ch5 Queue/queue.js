@@ -16,7 +16,7 @@ function enqueue(element) {
 }
 
 function dequeue() {
-    this.dataStore.shift(element);
+    return this.dataStore.shift();
 }
 
 function front() {
@@ -38,13 +38,6 @@ function toString() {
 function isEmpty() {
     return this.dataStore.length === 0;
 }
-
-var queue = new Queue();
-queue.enqueue(1);
-queue.enqueue(2);
-queue.enqueue(3);
-
-console.log(queue.toString());
 
 // export default Queue;
 module.exports = Queue;
