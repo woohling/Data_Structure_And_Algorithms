@@ -8,7 +8,7 @@ function Patient(name, code) {
 function dequeue() {
     var priority = this.dataStore[0].code;
     for (var i = 0; i < this.dataStore.length; i++) {
-        if (this.dataStore[i].code > priority) {
+        if (this.dataStore[i].code < priority) {
             priority = i;
         }
     }
@@ -39,13 +39,27 @@ p = new Patient("Brown", 1);
 ed.enqueue(p);
 p = new Patient("Ingram", 1);
 ed.enqueue(p);
-
 var seen = ed.dequeue();
-console.log(ed.dataStore);
-console.log(seen[0].name);
-
+console.log("Patient being treated: " + seen[0].name);
+console.log("Patients waiting to be seen: ");
+console.log(ed.toString());
 var seen = ed.dequeue();
-console.log(ed.dataStore);
+console.log("Patient being treated: " + seen[0].name);
+console.log("Patients waiting to be seen: ");
+console.log(ed.toString());
+var seen = ed.dequeue();
+console.log("Patient being treated: " + seen[0].name);
+console.log("Patients waiting to be seen: ");
+console.log(ed.toString());
+
+
+
+// var seen = ed.dequeue();
+// console.log(ed.dataStore);
+// console.log(seen[0].name);
+//
+// var seen = ed.dequeue();
+// console.log(ed.dataStore);
 // console.log(seen[0].name);
 //
 // while(!ed.isEmpty()) {
