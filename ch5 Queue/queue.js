@@ -45,3 +45,6 @@ queue.enqueue(2);
 queue.enqueue(3);
 
 console.log(queue.toString());
+
+// export default Queue;
+module.exports = Queue;
