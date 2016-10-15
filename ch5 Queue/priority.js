@@ -7,14 +7,17 @@ function Patient(name, code) {
 
 function dequeue() {
     var priority = this.dataStore[0].code;
+    var index;
+    console.log(priority);
+    console.log(this.dataStore.length);
     for (var i = 0; i < this.dataStore.length; i++) {
-        if (this.dataStore[i].code < priority) {
-            priority = i;
+        if (this.dataStore[i].code > priority) {
+            index = i;
         }
     }
     console.log(priority);
     console.log(this.dataStore);
-    return this.dataStore.splice(priority, 1);
+    return this.dataStore.splice(index, 1);
 }
 
 function toString() {
@@ -41,11 +44,11 @@ p = new Patient("Ingram", 1);
 ed.enqueue(p);
 var seen = ed.dequeue();
 console.log("Patient being treated: " + seen[0].name);
-console.log("Patients waiting to be seen: ");
+// console.log("Patients waiting to be seen: ");
 console.log(ed.toString());
 var seen = ed.dequeue();
 console.log("Patient being treated: " + seen[0].name);
-console.log("Patients waiting to be seen: ");
+// console.log("Patients waiting to be seen: ");
 console.log(ed.toString());
 var seen = ed.dequeue();
 console.log("Patient being treated: " + seen[0].name);
