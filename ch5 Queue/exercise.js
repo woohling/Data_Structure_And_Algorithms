@@ -67,6 +67,7 @@ function Patient(name, priority) {
 }
 
 var ED = new Queue();
+ED.toString = toString;
 var p = new Patient("Smith", 5);
 ED.enqueue(p);
 p = new Patient("Jones", 4);
@@ -77,4 +78,27 @@ p = new Patient("Brown", 1);
 ED.enqueue(p);
 p = new Patient("Ingram", 1);
 ED.enqueue(p);
+console.log(ED.toString());
+
+function toString() {
+    var retStr = "";
+    for (var i = 0; i < this.dataStore.length; ++i) {
+        retStr += this.dataStore[i].name + " priority: " + this.dataStore[i].priority + "\n";
+    }
+    return retStr;
+}
+
+function seePatient(p) {
+    for (var i = 0; i < ED.dataStore.length; i++) {
+        var patient = ED.dataStore[i];
+        if (patient.name == p) {
+            console.log(patient.name);
+            return ED.dataStore.splice(i, 1);
+        }
+    }
+}
+
+seePatient('Smith');
+
+console.log(ED.toString());
 
