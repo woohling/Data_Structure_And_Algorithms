@@ -15,6 +15,17 @@ function LList() {
     this.display = display;
     this.remove = remove;
     this.findPrevious = findPrevious;
+    this.length = length;
+}
+
+function length() {
+    var count = 0;
+    var curNode = this.head;
+    while (curNode.next && (curNode.next.element !== 'head')) {
+        count ++;
+        curNode = curNode.next;
+    }
+    return count;
 }
 
 function find(item) {
@@ -60,13 +71,13 @@ function display() {
     }
 }
 
-var test = new LList();
-test.insert('hello', 'head');
-test.insert('hello2', 'hello');
-test.insert('hello3', 'hello2');
-test.insert('hello4', 'hello3');
-test.display();
-test.remove('hello2');
-test.display();
+// var test = new LList();
+// test.insert('hello', 'head');
+// test.insert('hello2', 'hello');
+// test.insert('hello3', 'hello2');
+// test.insert('hello4', 'hello3');
+// test.display();
+// test.remove('hello2');
+// test.display();
 
 module.exports = LList;

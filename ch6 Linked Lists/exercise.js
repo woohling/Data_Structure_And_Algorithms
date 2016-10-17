@@ -27,7 +27,7 @@ test1.insert('4', '3');
 test1.insert('5', '4');
 // test1.display();
 test1.advance('4', 2);
-console.log();
+// console.log();
 // test1.display();
 
 // 2. Implement the back(n) function so that when executed, the current node is moved n spaces backward in the list.
@@ -53,10 +53,10 @@ test2.insert('2', '1');
 test2.insert('3', '2');
 test2.insert('4', '3');
 test2.insert('5', '4');
-test2.display();
+// test2.display();
 test2.back('2', 4);
-console.log();
-test2.display();
+// console.log();
+// test2.display();
 
 // 3. Implement the show() function, which displays the data associated with the current node.
 var test3 = new LList();
@@ -64,7 +64,7 @@ test3.show = show;
 
 function show(item) {
     var found = this.find(item);
-    console.log(found.element);
+    // console.log(found.element);
 }
 
 // 4. Write a program that uses a singly linked list to keep track of a set of test grades entered interactively into the program.
@@ -87,6 +87,48 @@ gradeList.insert('78', '87');
 var CircleList = require('./circularLinked');
 var circleList = new CircleList();
 
-function circularly(n, mth) {
+// circleList.removeItem = removeItem;
 
+function circularly(n, mth) {
+    for (var i = 1; i <= n; i++) {
+        if (i == 1) {
+            circleList.insert(i, 'head');
+        } else {
+            circleList.insert(i, i-1);
+        }
+    }
+
+    var itemsLeft = Math.floor(n % mth);
+    if (itemsLeft == 0) {
+        console.log('no soldiers remain');
+        return;
+    }
+
+    var count = n;
+    var curNode = circleList.head;
+
+    while (count >= mth) {
+        moveSteps(mth);
+    }
+
+    function moveSteps(m) {
+        for (var i = 0; i < m; i++) {
+            if (curNode.next && curNode.next.element == 'head') {
+                curNode = curNode.next.next;
+            } else {
+                curNode = curNode.next;
+            }
+        }
+        var previousNode = circleList.findPrevious(curNode.element);
+        removeItem(curNode);
+        curNode = previousNode;
+    }
+
+    function removeItem(node) {
+        circleList.remove(node.element);
+        count --;
+    }
 }
+
+circularly(11, 3);
+circleList.display();

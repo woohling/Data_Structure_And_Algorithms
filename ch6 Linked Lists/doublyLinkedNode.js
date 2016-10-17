@@ -76,8 +76,3 @@ function remove(item) {
 }
 
 module.exports = LList;
-
-// module.exports = {
-//     Node: Node,
-//     LList: LList
-// };
