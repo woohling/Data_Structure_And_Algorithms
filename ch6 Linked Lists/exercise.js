@@ -87,8 +87,6 @@ gradeList.insert('78', '87');
 var CircleList = require('./circularLinked');
 var circleList = new CircleList();
 
-// circleList.removeItem = removeItem;
-
 function circularly(n, mth) {
     for (var i = 1; i <= n; i++) {
         if (i == 1) {
