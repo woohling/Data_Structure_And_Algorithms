@@ -24,11 +24,11 @@ function remove(key) {
 
 function showAll() {
     console.log(this.dataStore);
-    this.dataStore.forEach(data => {
-        console.log(data);
-        for (var key in data) {
-            console.log(key + '->' + data[key]);
-        }
+    console.log(typeof this.dataStore);
+    console.log(this.dataStore[0]);
+    var keys = Object.keys(this.dataStore);
+    keys.forEach(key => {
+        console.log(key + '->' + this.find(key));
     });
 }
 
