@@ -8,6 +8,10 @@ function Dictionary() {
     this.find = find;
     this.remove = remove;
     this.showAll = showAll;
+    this.count = count;
+    this.clear = clear;
+    this.sort = sort;
+    this.setValue = setValue;
 }
 
 function add(key, value) {
@@ -23,13 +27,39 @@ function remove(key) {
 }
 
 function showAll() {
-    console.log(this.dataStore);
-    console.log(typeof this.dataStore);
-    console.log(this.dataStore[0]);
     var keys = Object.keys(this.dataStore);
     keys.forEach(key => {
         console.log(key + '->' + this.find(key));
     });
+}
+
+function count() {
+    var n = 0;
+    var keys = Object.keys(this.dataStore);
+    return keys.length;
+    //
+    // keys.forEach(key => ++n);
+    // return n;
+}
+
+function clear() {
+    var keys = Object.keys(this.dataStore);
+    keys.forEach(key => {
+        delete this.dataStore[key];
+    });
+
+    // this.dataStore = new Array();
+}
+
+function sort() {
+    var keys = Object.keys(this.dataStore).sort();
+    keys.forEach(key => {
+        console.log(key + '->' + this.find(key));
+    });
+}
+
+function setValue(key, value) {
+    this.dataStore[key] = value;
 }
 
 module.exports = Dictionary;
