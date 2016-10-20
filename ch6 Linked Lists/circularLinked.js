@@ -44,7 +44,7 @@ function findPrevious(item) {
         if (curNode.element == 'head') {
             curNode = null;
             break;
-        };
+        }
     }
     return curNode;
 }
