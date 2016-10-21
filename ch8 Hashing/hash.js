@@ -15,6 +15,7 @@ function simpleHash(data) {
 
 function put(data) {
     var pos = this.simpleHash(data);
+    console.log(pos);
     this.table[pos] = data;
 }
 
@@ -22,7 +23,9 @@ function showDistro() {
     var n = 0;
     for (var i = 0; i < this.table.length; i++) {
         if (this.table[i] !== undefined) {
-            console.log(this.table[i]);
+            console.log(i + ' ' + this.table[i]);
         }
     }
 }
+
+module.exports = Hash;
