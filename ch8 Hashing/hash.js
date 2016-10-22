@@ -3,6 +3,7 @@ function Hash() {
     this.simpleHash = simpleHash;
     this.put = put;
     this.showDistro = showDistro;
+    this.betterHash = betterHash;
 }
 
 function simpleHash(data) {
@@ -14,8 +15,7 @@ function simpleHash(data) {
 }
 
 function put(data) {
-    var pos = this.simpleHash(data);
-    console.log(pos);
+    var pos = this.betterHash(data);
     this.table[pos] = data;
 }
 
@@ -26,6 +26,19 @@ function showDistro() {
             console.log(i + ' ' + this.table[i]);
         }
     }
+}
+
+function betterHash(string) {
+    const H = 37;
+    var total = 0;
+    for (var i = 0; i < string.length; ++i) {
+        total += H * total + string.charCodeAt(i);
+    }
+    total = total % this.table.length;
+    if (total < 0) {
+        total += this.table.length - 1;
+    }
+    return parseInt(total);
 }
 
 module.exports = Hash;
