@@ -10,10 +10,10 @@ var arrSize = 97;
 var idLength = 9;
 var students = new Array(numStudents);
 getStuData(students);
-console.log(students);
 
 for (var i = 0; i < students.length; i++) {
-    hashTable.put(students[i]);
+    var name = 'name' + i;
+    hashTable.put(name, students[i]);
 }
 hashTable.showDistro();
 
