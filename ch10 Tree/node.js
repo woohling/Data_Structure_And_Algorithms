@@ -2,11 +2,19 @@ function Node(data, left, right) {
     this.data = data;
     this.left = left;
     this.right = right;
+    this.count = 1;
     this.show = show;
+    this.update = update;
 }
 
 function show() {
     return this.data;
+}
+
+function update(data) {
+    var grade = this.find(data);
+    grade.count ++;
+    return grade;
 }
 
 function BST() {
