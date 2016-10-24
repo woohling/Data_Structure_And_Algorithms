@@ -6,6 +6,7 @@ function Vertex(label) {
 function Graph(v) {
     this.vertices = v;
     this.edges = 0;
+    this.edgeTo = [];
     this.adj = [];
     for (var i = 0; i < this.vertices; ++i) {
         this.adj[i] = [];
@@ -20,6 +21,8 @@ function Graph(v) {
     }
     this.depthSearch = depthSearch;
     this.breadthSearch = breadthSearch;
+    this.hasPathTo = hasPathTo;
+    this.pathTo = pathTo;
 }
 
 function addEdge(v, w) {
@@ -65,21 +68,45 @@ function breadthSearch(s) {
         for (var i = 1; i < this.adj[v].length; ++i) {
             var w = this.adj[v][i];
             if (!this.marked[w]) {
-                // this.edgeTo[w] = v;
+                this.edgeTo[w] = v;
                 this.marked[w] = true;
                 queue.push(w);
             }
         }
     }
+}
 
+function pathTo(v) {
+    var source = 0;
+    if (!this.hasPathTo(v)) {
+        return undefined;
+    }
+    var path = [];
+    for (var i = v; i != source ; i = this.edgeTo[i]) {
+        path.push(i);
+    }
+    // path.push(s);
+    return path;
+}
+
+function hasPathTo(v) {
+    return this.marked[v];
 }
 
 var graph = new Graph(5);
-console.log(graph.adj);
 graph.addEdge(0,1);
 graph.addEdge(0,2);
 graph.addEdge(1,3);
 graph.addEdge(2,4);
 // graph.showGraph();
 // graph.depthSearch(0);
-graph.breadthSearch(0);
+// graph.breadthSearch(0);
+var vertex = 4;
+var paths = graph.pathTo(vertex);
+console.log(paths);
+while (paths.length > 0) {
+    if (paths.length > 1) { console.log(paths.pop() + '-');
+    } else {
+        console.log(paths.pop());
+    }
+}
