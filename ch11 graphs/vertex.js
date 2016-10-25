@@ -61,7 +61,7 @@ function depthSearch(v) {
 function breadthSearch(s) {
     var queue = [];
     this.marked[s] = true;
-    queue.push(s)
+    queue.push(s);
     while (queue.length > 0) {
         var v = queue.shift(); // remove from front of queue if (v == undefined) {
         console.log("Visited vertex: " + v);
