@@ -15,6 +15,7 @@ function CArray(numElements) {
     }
     this.bubbleSort = bubbleSort;
     this.selectionSort = selectionSort;
+    this.insertionSort = insertionSort;
 }
 
 function toString() {
@@ -64,7 +65,7 @@ function bubbleSort() {
     // improved version
     var length = this.dataStore.length;
     for (var i = 0; i < length; i++) {
-        for (var j = 0; j < length-1-i; j++) {
+        for (var j = 0; j < length - 1 - i; j++) {
             if (this.dataStore[j] > this.dataStore[j + 1]) {
                 this.swap(this.dataStore, j, j + 1);
             }
@@ -74,9 +75,9 @@ function bubbleSort() {
 
 function selectionSort() {
     var length = this.dataStore.length;
-    for (var i = 0; i < length-1; i++) {
+    for (var i = 0; i < length - 1; i++) {
         var indexMin = i;
-        for (var j = i; j < length ; j++) {
+        for (var j = i; j < length; j++) {
             if (this.dataStore[j] < this.dataStore[i]) {
                 indexMin = j;
             }
@@ -84,6 +85,21 @@ function selectionSort() {
         if (i !== indexMin) {
             this.swap(this.dataStore, i, indexMin);
         }
+    }
+}
+
+function insertionSort() {
+    var length = this.dataStore.length;
+    var j;
+    var temp;
+    for (var i = 1; i < length; i++) {
+        j = i;
+        temp = this.dataStore[i];
+        while (j > 0 && this.dataStore[j - 1] > temp) {
+            this.dataStore[j] = this.dataStore[j - 1];
+            j--;
+        }
+        this.dataStore[j] = temp;
     }
 }
 
