@@ -100,13 +100,13 @@ graph.addEdge(1,3);
 graph.addEdge(2,4);
 // graph.showGraph();
 // graph.depthSearch(0);
-// graph.breadthSearch(0);
-var vertex = 4;
-var paths = graph.pathTo(vertex);
-console.log(paths);
-while (paths.length > 0) {
-    if (paths.length > 1) { console.log(paths.pop() + '-');
-    } else {
-        console.log(paths.pop());
-    }
-}
+graph.breadthSearch(2);
+// var vertex = 4;
+// var paths = graph.pathTo(vertex);
+// console.log(paths);
+// while (paths.length > 0) {
+//     if (paths.length > 1) { console.log(paths.pop() + '-');
+//     } else {
+//         console.log(paths.pop());
+//     }
+// }
