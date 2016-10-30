@@ -62,12 +62,18 @@ function knapsack(items, capacity) {
         }
     }
 
+    console.log(keepMatrix);
+    console.log();
+    console.log(weightMatrix);
+
     // Traverse through keepMatrix ([numItems][capacity] -> [1][?])
     // to create solutionSet
     idxWeight = capacity;
     idxItem   = numItems;
     for(idxItem; idxItem > 0; idxItem--){
         if(keepMatrix[idxItem][idxWeight] === 1){
+            console.log(idxItem-1);
+            console.log(idxWeight);
             solutionSet.push(items[idxItem - 1]);
             idxWeight = idxWeight - items[idxItem - 1].w;
         }
@@ -77,14 +83,14 @@ function knapsack(items, capacity) {
 
 exports = knapsack;
 
-var value = [4,5,10,11,13];
-var size = [3,4,7,8,9];
+var size = [2,4,7,8,9];
+var value = [7,9,10,55,33];
 var items = [];
 for (var i = 0; i < 5 ; i ++) {
     var item = {w: size[i], b: value[i]};
     items.push(item);
 }
 
-var result = knapsack(items, 16);
+var result = knapsack(items,7);
 console.log(result.maxValue);
 console.log(result.set);
